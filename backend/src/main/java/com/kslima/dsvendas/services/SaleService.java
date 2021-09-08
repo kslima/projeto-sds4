@@ -1,12 +1,15 @@
 package com.kslima.dsvendas.services;
 
+import com.kslima.dsvendas.dto.SaleDTO;
 import com.kslima.dsvendas.entities.Sale;
-import com.kslima.dsvendas.entities.Seller;
 import com.kslima.dsvendas.repositories.SaleRepository;
+import com.kslima.dsvendas.repositories.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 
 @Service
 public class SaleService {
@@ -14,7 +17,13 @@ public class SaleService {
     @Autowired
     private SaleRepository saleRepository;
 
-    public List<Sale> findAll() {
-        return saleRepository.findAll();
+    @Autowired
+    private SellerRepository sellerRepository;
+
+    @Transactional(readOnly = true)
+    public Page<SaleDTO> findAll(Pageable pageable) {
+        sellerRepository.findAll();
+        Page<Sale> result = saleRepository.findAll(pageable);
+        return result.map(SaleDTO::new);
     }
 }
