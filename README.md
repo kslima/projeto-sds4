@@ -5,9 +5,8 @@
 
 https://lnkd.in/g5te8m4J
 
-DSVendas é uma aplicação full stack web construída durante a Semana Spring React 4.0 (#sds4), evento organizado pela [DevSuperior](https://devsuperior.com "Site da DevSuperior").
+DSVendas é uma aplicação full stack web construída para mostrar informações de vendas.
 
-A aplicação em mostrar informações de vendas através de gráficos e tabela.
 
 ## Layout web
 ![Web 1](https://github.com/kslima/assets/blob/main/sds4.png)
